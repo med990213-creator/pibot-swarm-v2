@@ -1,0 +1,18 @@
+{
+  "Detect_Package_Manager": {
+    "name": "Detect_Package_Manager",
+    "description": "Auto-detects the correct Python package installer (pip3, pip, or python3 -m pip)",
+    "code": "import shutil\nmanager = 'pip3' if shutil.which('pip3') else ('pip' if shutil.which('pip') else 'python3 -m pip')",
+    "category": "System_Discovery",
+    "created_at": "2026-02-24T02:52:00",
+    "usage_count": 1
+  },
+  "Safe_GitHub_Push": {
+    "name": "Safe_GitHub_Push",
+    "description": "Uploads code to GitHub safely while handling restricted tokens",
+    "code": "# Removes workflows if token restricted, verifies via curl after push",
+    "category": "Automation",
+    "created_at": "2026-02-24T01:30:00",
+    "usage_count": 5
+  }
+}

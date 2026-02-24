@@ -1,0 +1,59 @@
+{
+  "nodes": {
+    "target_1": {
+      "node_id": "target_1",
+      "label": "Target",
+      "properties": {
+        "ip": "192.168.1.1",
+        "os": "Linux"
+      },
+      "created_at": "2026-02-24T01:13:45.927617"
+    },
+    "vuln_cve_2021": {
+      "node_id": "vuln_cve_2021",
+      "label": "Vulnerability",
+      "properties": {
+        "id": "CVE-2021-44228",
+        "severity": "Critical"
+      },
+      "created_at": "2026-02-24T01:13:45.927880"
+    },
+    "wallet_pi": {
+      "node_id": "wallet_pi",
+      "label": "Wallet",
+      "properties": {
+        "address": "Pi-Sovereign-Address",
+        "network": "Solana"
+      },
+      "created_at": "2026-02-24T01:13:07.045138"
+    }
+  },
+  "edges": [
+    {
+      "source_id": "target_1",
+      "target_id": "vuln_cve_2021",
+      "relation": "AFFECTED_BY"
+    },
+    {
+      "source_id": "wallet_pi",
+      "target_id": "vuln_cve_2021",
+      "relation": "MONETIZING_RESEARCH"
+    },
+    {
+      "source_id": "target_1",
+      "target_id": "vuln_cve_2021",
+      "relation": "AFFECTED_BY"
+    },
+    {
+      "source_id": "wallet_pi",
+      "target_id": "vuln_cve_2021",
+      "relation": "MONETIZING_RESEARCH"
+    },
+    {
+      "source_id": "target_1",
+      "target_id": "vuln_cve_2021",
+      "relation": "AFFECTED_BY"
+    }
+  ],
+  "updated_at": "2026-02-24T01:13:45.928899"
+}

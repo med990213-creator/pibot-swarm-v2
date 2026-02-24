@@ -10,9 +10,15 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 try:
     from .core import BaseAgent, AgentMessage
     from .tools import discover_hosts, scan_ports, detect_services, assess_risk, full_network_scan
+    from .memory_graph import SovereignGraphMemory
+    from .self_reflection import SelfReflection
+    from .skill_library import SkillManager
 except ImportError:
     from core import BaseAgent, AgentMessage
     from tools import discover_hosts, scan_ports, detect_services, assess_risk, full_network_scan
+    from memory_graph import SovereignGraphMemory
+    from self_reflection import SelfReflection
+    from skill_library import SkillManager
 
 from typing import List, Dict, Optional
 import json
@@ -20,14 +26,11 @@ import json
 # --- 1. وكيل الاستطلاع (Reconnaissance Agent) ---
 
 class ReconnaissanceAgent(BaseAgent):
-    """
-    🕵️ Network Reconnaissance Specialist
-    
-    Identity:
-        وكيل استطلاع أمني للشبكات. هدفك هو اكتشاف وتوثيق البنية التحتية
-        للشبكة بدقة واحترافية وأمان.
-    
-    Core Principles:
+    def __init__(self):
+        super().__init__("Recon", "Network Reconnaissance Specialist")
+        self.memory = SovereignGraphMemory()
+        self.reflection = SelfReflection() # مفعّل
+        self.skills = SkillManager()       # مفعّل
         1. Be Thorough: لا تترك حجراً دون حجر، لكن احترم الموارد
         2. Be Accurate: الإيجابيات الكاذبة تضيع الوقت؛ تحقّق قبل الإبلاغ
         3. Be Safe: لا تستغل أبداً، فقط اكتشف ووثّق
