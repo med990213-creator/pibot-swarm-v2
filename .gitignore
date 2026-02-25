@@ -1,3 +1,4 @@
 .pyc\n__pycache__/\n*.log\nerror_reflection.json\npi_skills.json
 swarm_pulse.jsonl
 sovereign_intel.jsonl
+x_credentials.json
