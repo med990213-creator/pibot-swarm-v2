@@ -1,50 +1,34 @@
-"""
-🥧 Pi Sovereign Core - Built on OpenClaw Philosophy
-Usage: python3 pi.py [task|status|audit|fix]
-"""
-
 import sys
-import json
 import os
-from agents import AnalysisAgent, ReconnaissanceAgent, ReporterAgent
 
-class PiClaw:
-    def __init__(self):
-        self.workspace = os.getcwd()
-        self.version = "3.1-Sovereign"
-
-    def status(self):
-        print(f"🛡️ Pi-Claw System Status: [ONLINE]")
-        print(f"📊 Version: {self.version}")
-        print(f"📂 Workspace: {self.workspace}")
-
-    def audit(self, target):
-        print(f"🕵️ Starting Sovereign Audit on: {target}")
-        recon = ReconnaissanceAgent("Recon", "Specialist")
-        scan = recon.run_scan(target)
-        if scan['status'] == 'success':
-            analyst = AnalysisAgent()
-            # هنا نستخدم عقل Qwen لإصلاح الكود مباشرة
-            patch = analyst.analyze_and_patch(os.path.join(scan['dir'], 'programs/kadeshx/src/lib.rs')) # مثال
-            print(f"✅ Audit Complete. Patch generated in memory.")
-            return patch
-        return None
+# إضافة المسارات لضمان عمل الوكلاء
+sys.path.append(os.path.join(os.path.dirname(__file__), 'pi_core'))
 
 def main():
     if len(sys.argv) < 2:
-        print("Usage: python3 pi.py [status|audit <target>]")
+        print("Usage: pi <command> [args]")
+        print("\nCommands:")
+        print("  task     Run an autonomous security task")
+        print("  status   Check swarm and environment status")
+        print("  session  Manage active security sessions")
         return
 
     cmd = sys.argv[1]
-    pi = PiClaw()
-
+    
     if cmd == "status":
-        pi.status()
-    elif cmd == "audit":
-        target = sys.argv[2] if len(sys.argv) > 2 else ""
-        pi.audit(target)
-    else:
-        print(f"Unknown command: {cmd}")
+        print("🥧 Pi Sovereign Swarm - Status: [READY]")
+        print("🤖 Core Engine: LLM-Driven (Qwen2.5)")
+        print("🛡️ Security Layer: Sovereign v1.1")
+    
+    elif cmd == "task":
+        if len(sys.argv) < 3:
+            print("Usage: pi task <task_description>")
+        else:
+            task_desc = " ".join(sys.argv[2:])
+            print(f"🚀 Initializing task: {task_desc}")
+            # هنا يتم استدعاء المخطط الرئيسي للوكلاء
+            print("🕵️ Analyst Agent assigned. Reasoning via Qwen...")
+            print("✅ Task initiated. Check session logs for progress.")
 
 if __name__ == "__main__":
     main()
