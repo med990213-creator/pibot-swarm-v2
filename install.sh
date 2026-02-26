@@ -28,7 +28,7 @@ echo "📱 Platform: $OS-$ARCH"
 INSTALL_DIR="/usr/local/bin"
 GITHUB_USER="Pi-Swarm"
 REPO="pibot-swarm-v2"
-VERSION="v8.0"
+VERSION="v8.0.1"
 BINARY_NAME="pi-${OS}-${ARCH}"
 URL="https://github.com/${GITHUB_USER}/${REPO}/releases/download/${VERSION}/${BINARY_NAME}"
 
